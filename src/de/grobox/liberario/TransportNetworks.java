@@ -559,6 +559,13 @@ public class TransportNetworks {
 				.setStatus(TransportNetwork.Status.ALPHA)
 				.setGoodLineNames(true)
 		);
+		list.add(new TransportNetwork(context, NetworkId.BRITISHCOLUMBIA)
+				.setName(getString(R.string.np_name_britishcolumbia))
+				.setDescription(getString(R.string.np_desc_britishcolumbia), getString(R.string.np_desc_britishcolumbia_networks))
+				.setRegion(region)
+				.setStatus(TransportNetwork.Status.ALPHA)
+				.setGoodLineNames(true)
+		);
 
 		return list;
 	}

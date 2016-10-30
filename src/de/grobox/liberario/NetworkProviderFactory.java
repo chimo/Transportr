@@ -100,6 +100,7 @@ public final class NetworkProviderFactory
 	private static Reference<OntarioProvider> ontarioProviderRef;
 	private static Reference<QuebecProvider> quebecProviderRef;
 	private static Reference<RtaChicagoProvider> rtaChicagoProviderRef;
+	private static Reference<BritishcolumbiaProvider> britishcolumbiaProviderRef;
 
 	private static final String NAVITIA_API = "https://api.navitia.io/v1/";
 	private static final String NAVITIA = "87a37b95-913a-4cb4-ba52-eb0bc0b304ca";
@@ -1055,6 +1056,19 @@ public final class NetworkProviderFactory
 
 			final RtaChicagoProvider provider = new RtaChicagoProvider();
 			rtaChicagoProviderRef = new SoftReference<>(provider);
+			return provider;
+		}
+		else if (networkId.equals(NetworkId.BRITISHCOLUMBIA))
+		{
+			if (britishcolumbiaProviderRef != null)
+			{
+				final BritishcolumbiaProvider provider = britishcolumbiaProviderRef.get();
+				if (provider != null)
+					return provider;
+			}
+
+			final BritishcolumbiaProvider provider = new BritishcolumbiaProvider(NAVITIA);
+			britishcolumbiaProviderRef = new SoftReference<>(provider);
 			return provider;
 		}
 		else
